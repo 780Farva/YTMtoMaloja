@@ -26,7 +26,7 @@ A little project to convert Google Takeout dumps of YouTube Music listening hist
 
     Click the button that says "Multiple Formats" to open up a dialog where you can select formats for different data. Scroll to find "history" and choose "JSON" as the export format (the default is HTML). This will ensure that your watch history is exported in JSON format, which is required by this program.
 
-    Bonus: If you want to minimize the time it takes to do all this, also click the button that says "All YouTube data included", click "Deselect all" in the dialog that pops up, and only select "history".
+    >**Bonus:** If you want to minimize the time it takes to do all this, also click the button that says "All YouTube data included", click "Deselect all" in the dialog that pops up, and only select "history".
 
     <p style="text-align: center;">
     <img src=./step4.gif>
