@@ -1,0 +1,27 @@
+name: ytmaloja
+help: Convert Google Takeout dumps of YouTube Music listening history to Maloja's export format.
+version: 0.1.0
+
+args:
+- name: source
+  help: Path to your watch-history.json file.
+  validate: file_exists
+  required: true
+
+- name: out_dir
+  help: directory where the resulting maloja compatible file will be placed.
+  default: .
+  validate: parent_dir_exists
+  required: false
+
+flags:
+- long: --timestamp
+  short: -t
+  arg: export_time
+  help: unix timestamp to use as the export time in the maloja file. Also names the output json.
+  validate: timestamp
+  required: false
+
+examples:
+- ytmaloja ./watch-history.json results
+- DEBUG=1 ytmaloja ./watch-history.json # enable debug logging

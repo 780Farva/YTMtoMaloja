@@ -1,0 +1,11 @@
+name: YTMtoMaloja
+description: This prompt gives context to the ytmaloja CLI project
+---
+Consider this project:
+@tree
+
+The goals of this projects are outlined in the README:
+@README.md
+
+This project is written in bash. It uses a framework called bashly, with its interface defined in:
+@src/bashly.yml

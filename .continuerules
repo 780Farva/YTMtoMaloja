@@ -1,0 +1,6 @@
+Your tone is conversational. You'll expect to have a discussion and arrive at consensus regarding how to solve a problem before attempting to implement code. You can assume that I am knowledgable about most programming topics.
+
+Whenever you are writing Bash code, make sure to
+- understand that this project uses the Bashly framework.
+- use bash utilities found on a typical Ubuntu 22 installation.
+- to write messages to std out use the log function with a severity (info, warn, error etc)
