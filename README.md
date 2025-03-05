@@ -12,14 +12,14 @@ A little project to convert Google Takeout dumps of YouTube Music listening hist
 
     Deselect all the services that you don't want to download. You can leave only YouTube and YouTube Music selected.
     <p style="text-align: center;">
-    <img src=./step2.gif>
+    <img src=./docs/step2.gif>
     </p>
 
 3. Select YouTube content option
 
     Select "YouTube" as the content option.
     <p style="text-align: center;">
-    <img src=./step3.gif>
+    <img src=./docs/step3.gif>
     </p>
 
 4. Choose export format
@@ -29,7 +29,7 @@ A little project to convert Google Takeout dumps of YouTube Music listening hist
     >**Bonus:** If you want to minimize the time it takes to do all this, also click the button that says "All YouTube data included", click "Deselect all" in the dialog that pops up, and only select "history".
 
     <p style="text-align: center;">
-    <img src=./step4.gif>
+    <img src=./docs/step4.gif>
     </p>
 
 5. Create export
@@ -37,7 +37,7 @@ A little project to convert Google Takeout dumps of YouTube Music listening hist
     Click on "Next step", review the options given to you and finally click the "Create export" button to start the process. You will be emailed a link with a zip file that contains your YouTube watch history if thats what you chose. Otherwise wait for your file to become available in whichever mode you selected.
 
     <p style="text-align: center;">
-    <img src=./step5.gif>
+    <img src=./docs/step5.gif>
     </p>
 
 6. Unzip the file
