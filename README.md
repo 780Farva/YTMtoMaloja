@@ -2,7 +2,14 @@
 
 A little project to convert Google Takeout dumps of YouTube Music listening history to a CSV of scrobbles in the same format as last.fm data dumps.
 
-# Getting Your History from Google
+# Installation
+This is a bash project so just clone the repo, or download just the lts file and place it somewhere you can reach it from your terminal.
+
+# Usage
+
+>$lts ./watch-history.json
+
+## Getting Your watch-history.json from Google
 1. Go to Google Takeout
 
     Open [Google Takeout](https://takeout.google.com/settings/takeout).
@@ -44,9 +51,9 @@ A little project to convert Google Takeout dumps of YouTube Music listening hist
 
     Unzip the zip file and find the watch-history.json file inside. This file contains your YouTube watch history in JSON format! Make note of where you've saved it to.
 
-## Input Example
+### Input Example
 
-```
+```json
 [{
   "header": "YouTube Music",
   "title": "Watched You Got One Too",
@@ -84,9 +91,14 @@ Song: You Found Me
 Time: 
 
 
-# Output Example
+### Output Example
 
-```
+```json
 uts,utc_time,artist,artist_mbid,album,album_mbid,track,track_mbid
 "1741145180","05 Mar 2025, 03:26","GLARE","","Bloom","","Bloom","3de53a6e-c894-410f-90a5-49b6ec136349"
 ```
+
+# Developing
+
+This project uses [Bashly](https://github.com/DannyBen/bashly)!
+If you'd like to pull it and modify it, understanding how to work within bashly projects is the place to start.

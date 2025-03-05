@@ -1,0 +1,11 @@
+name: lts
+help: Convert Google Takeout dumps of YouTube Music listening history to a CSV of scrobbles in the same format as last.fm data dumps. Prints to stdout
+version: 0.1.0
+
+args:
+- name: source
+  required: true
+  help: Path to your watch-history.json file.
+
+examples:
+- lts ./watch-history.json
