@@ -15,3 +15,4 @@ args:
 
 examples:
 - lts ./watch-history.json ./scrobbles.csv
+- DEBUG=1 lts ./watch-history.json ./scrobbles.csv # enable debug logging
