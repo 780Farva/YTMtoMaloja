@@ -5,9 +5,12 @@ A little project to convert Google Takeout dumps of YouTube Music listening hist
 # Installation
 This is a bash project so just clone the repo, or download just the lts file and place it somewhere you can reach it from your terminal.
 
+## Dependencies
+- [jq](https://github.com/bobbyiliev/introduction-to-bash-scripting/blob/main/ebook/en/content/018-working-with-json-in-bash-using-jq.md)
+
 # Usage
 
->$lts ./watch-history.json
+>$lts ./watch-history.json ./scrobbles.csv
 
 ## Getting Your watch-history.json from Google
 1. Go to Google Takeout
@@ -97,6 +100,18 @@ Time:
 uts,utc_time,artist,artist_mbid,album,album_mbid,track,track_mbid
 "1741145180","05 Mar 2025, 03:26","GLARE","","Bloom","","Bloom","3de53a6e-c894-410f-90a5-49b6ec136349"
 ```
+
+# How it works
+
+1. preprocess the google takeout watch history file down to just youtube music entires
+
+2. find all the distinct artist names present in that file
+
+3. for that list of artists, make calls to musicbrainz to get details on every release that artist has, including track names and ids, and populate a local lightweight DB with it
+
+4. go through the filtered file again once more, this time referencing the local db to fill out missing information (album name, mbzids)
+
+5. convert the data to csv format and write it to the specified file
 
 # Developing
 

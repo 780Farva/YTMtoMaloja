@@ -6,6 +6,12 @@ args:
 - name: source
   required: true
   help: Path to your watch-history.json file.
+  validate: file_exists
+
+- name: out
+  required: true
+  help: Path where the resulting csv of scrobbles will be written.
+  validate: parent_dir_exists
 
 examples:
-- lts ./watch-history.json
+- lts ./watch-history.json ./scrobbles.csv
