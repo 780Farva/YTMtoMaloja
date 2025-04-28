@@ -1,0 +1,49 @@
+name: LastTakeoutScraper
+description: This prompt gives context to the LTS CLI project
+---
+General information about the current repo:
+
+@vscode-remote://wsl%2Bubuntu/home/jules/LastTakeoutScraper/README.md
+
+This project is written in bash. It uses a framework called bashly, with its interface defined in:
+
+@vscode-remote://wsl%2Bubuntu/home/jules/LastTakeoutScraper/src/bashly.yml
+
+The input to this project is a google music history dump file.
+These files keep a record of individual listens to particular songs.
+The output of this project is a file of "scrobbles" that can be imported into projects like last.fm.
+
+Unfortunately, the input file does not have enough information present to do this conversion directly.
+The input file only gives the song title and artist name, but not the album name. 
+The scrobble format requires a Musicbrainz ID for the song, artist, and the album.
+
+Musicbrainz does have an API, and it is free to use, but we'll need to locate the above data for thousands of listens.
+
+The general approach will be to filter the input file to extract a list of unique song-artist pairs.
+That list will then be used to query the Musicbrainz API to determine the album the song was on as well as the IDs we need.
+
+We'll still have thousands of artist-track pairs to work with and the Musicbrainz API has a rate limit of 1 request/second, so query batching will be necessary.
+The script makes some intermediate files to keep things relatively easy. The artist-track pairs file will have a format like this:
+
+```
+{"artist":"$atori Zoom","track":"BARRACUDA"}
+{"artist":"$atori Zoom","track":"BUSTER"}
+{"artist":"$atori Zoom","track":"LOCK OUT (feat. Kalono)"}
+{"artist":"$yanide","track":"youthi feel empty"}
+{"artist":"(((O)))","track":"Omw"}
+{"artist":"(G)I-DLE","track":"DUMDi DUMDi"}
+{"artist":"(G)I-DLE","track":"LION"}
+{"artist":".ihaveaface","track":"Vibes from Another Universe"}
+```
+
+To use the musicbrainz API, the above data will need to be included in a query.
+
+A contrived example of a query string for two artist-track pairs is this:
+```
+A1="ミラクルミュージカル"
+T1="Dream Sweet in Sea Major"
+A2="bbno$"
+T2="sophisticated"
+
+query="query=status:(official OR promotion) AND ((title:\"${T1}\" AND artist:\"${A1}\") OR (title:\"${T2}\" AND artist:\"${A2}\"))" 
+```

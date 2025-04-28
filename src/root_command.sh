@@ -24,9 +24,9 @@ jq '[.[] | select(.header == "YouTube Music") |
 log debug "A music-only version of the input file has been written to ${music_entries_only_file}"
 
 log debug "Collecting unique artist-track pairs..."
-jq '[unique_by([ .artist, .track ]) | .[] | del(.uts,.utc_time)]' ${music_entries_only_file} > ${unique_artist_tracks}
+jq -c 'unique_by([ .artist, .track ]) | .[] | del(.uts,.utc_time)' ${music_entries_only_file} > ${unique_artist_tracks}
 
-
+exit 0
 
 # a function that gets additional track information from musicbrainz
 # usage get-mb-data <track_name> <artist_name>
@@ -37,7 +37,7 @@ mb_result=$(curl -s --get \
 --data-urlencode "query=\"$1\" AND artist:\"$2\"" \
 'https://musicbrainz.org/ws/2/recording/') 
 
-echo $mb_result | jq -M 'select(.count != 0) |
+echo $mb_result | jq -c -M 'select(.count != 0) |
 . += {
 		track: ( .recordings[0].title ),
 	  track_mbid: ( .recordings[0].id ),
