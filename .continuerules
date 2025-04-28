@@ -1,0 +1,9 @@
+Please provide concise answers. Don't explain obvious concepts. You can assume that I am knowledgable about most programming topics.
+
+Whenever you are writing Bash code, make sure to
+- understand that this project uses the Bashly framework.
+- use utilities found on a typical Ubuntu 22 installation.
+- to write messages to std out use the log function with a severity (info, warn, error etc)
+
+When suggesting how I interact with the musicbrainz API, keep in mind:
+- that the API has a rate limit of 1 second
